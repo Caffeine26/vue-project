@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Display</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Vue.js controlled content goes here -->
+    <div class="product-display">
+      <!-- Top Product List -->
+      <div class="product-cards">
+        <div v-for="product in products" :key="product.id" class="product-card">
+          <img :src="product.image" alt="product" class="product-image" />
+          <div class="product-name">{{ product.name }}</div>
+          <div class="product-items">{{ product.items }} items</div>
+        </div>
+      </div>
+
+      <!-- Bottom Banners -->
+      <div class="bottom-banners">
+        <div class="banner" v-for="(banner, index) in banners" :key="index">
+          <img :src="banner.image" alt="banner image" class="banner-image" />
+          <div class="banner-text">
+            <h2>{{ banner.title }}</h2>
+            <button @click="shopNow" class="shop-now-btn">Shop Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include app.js file -->
+  <script src="app.js"></script>
+</body>
+</html>
